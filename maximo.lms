@@ -1,0 +1,22 @@
++0100017 ; LEER en la posición de memoria 17
++0200018 ; CARGAR la posición de memoria 18 en el acumulador
++0310017 ; RESTAR al acumulador la posición de memoria 17
++0420015 ; JPMZERO salta a la posición de memoria 15 si el acumulador es 0
++0200018 ; CARGAR la posicion de memoria 18 en el acumulador
++0300021 ; SUMAR al acumulador la posición de memoria 21
++0210018 ; GUARDAR el contenido del acumulador en la posición 18
++0100019 ; LEER en la posición de memoria 19
++0200020 ; CARGAR la posición de memoria 20 en el acumulador
++0310019 ; RESTAR al acumulador la posición de memoria 19
++0410012 ; JMPNEG salta a la posición 12 si el acumulador es negativo
++0400001 ; JMP salta a la posición 01
++0200019 ; CARGAR la posición de memoria 19 en el acumulador
++0210020 ; GUARDAR el contenido del acumulador en la posición 20
++0400001 ; JMP salta a la posición 01
++0110020 ; ESCRIBIR por pantalla la posición 20
++0450000 ; HALT
++0000000 ; Pos. 17 Variable A
++0000000 ; Pos. 18 Variable B
++0000000 ; Pos. 19 Variable D
++0000000 ; Pos. 20 Valor acumulado
++0000001
