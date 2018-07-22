@@ -3,6 +3,16 @@
 
 #include <stdio.h>
 
+#ifdef LENG_ESPANOL
+#include "leng_espanol.h"
+
+#elif defined (LENG_INGLES)
+#include "leng_ingles.h"
+
+#else
+#include "leng_espanol.h"
+#endif
+
 /*Este .c contiene el vector de errores del programa, cuyas macros se encuentran en los .h de idiomas*/
 
 const char * errmsg[] = {

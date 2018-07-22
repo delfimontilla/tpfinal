@@ -29,6 +29,7 @@
 #define TDA_LISTA__H
 
 #include <stdio.h>
+#include "tipos.h"
 
 /*En este archivo, se encuentran los prototipos de las funciones otorgadas para la utilizacion en este trabajo*/
 

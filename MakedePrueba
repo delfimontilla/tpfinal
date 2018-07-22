@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -Wall -pedantic -ansi -g
+OUTPUT = main
+DEPS = tipos.h constantes.h main.h tda_lista.h tda_vector.h simpletron procesamiento.h
+OBJ = errores.o procesamiento.o tda_lista.o tda_vector.o simpletron.o $(OUTPUT).o
+
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+# Esto significa que se va compilar a partir del archivo %.c ("$<" significa "el primer elemento del lado derecho de :")
+# un archivo %.o, el cual no va a ser un ejecutable porque el flag "-c" indica que sólo se intercambia ".c" por ".o"
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+valgrind:
+	valgrind --tool=memcheck --leak-check=full ./$(OUTPUT)
+
+clean:
+	rm -rf *.o & rm $(OUTPUT)
