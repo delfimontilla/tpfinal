@@ -351,14 +351,6 @@ status_t validar_argumentos (int argc , char *argv[], parametros_t *argumentos, 
 	{
 		if(!(strcmp(argv[ARG_POS_H],ARG_H)))
 			return ST_AYUDA;
-		else if (!(strcmp(argv[ARG_POS_FENTRADA1],ARG_STDIN)))
-		{
-					*cant_palabras=CANT_PALABRAS_DEFAULT;
-					argumentos->fmt_ent_stdin=true;
-					return ST_OK;
-		}
-		else
-			return ST_ERROR_ARG_INV;
 	}
 	argumentos->nombre_arch_sal=NOMBRE_SALIDA;
 	if(strcmp(argv[ARG_POS_CANT_PALABRAS],ARG_CANT_PALABRAS)) /*comprueba si se pasa la cantidad de palabras*/
@@ -368,7 +360,7 @@ status_t validar_argumentos (int argc , char *argv[], parametros_t *argumentos, 
 		{
 			argumentos->fmt_sal_txt=true;
 			argumentos->fmt_sal_bin=false;
-			if (!(strcmp(argv[ARG_POS_FENTRADA1], ARG_STDIN)))/*comprueba si la entrada es por stdin en caso de no pasar la cantidad palabras o formato de salida*/
+			if (!(strcmp(argv[ARG_POS_FENTRADA1], ARG_STDIN)) && argc==ARGC_MIN)/*comprueba si la entrada es por stdin en caso de no pasar la cantidad palabras o formato de salida*/
 			{
 				argumentos->fmt_ent_stdin=true;
 			}
