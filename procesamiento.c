@@ -2,10 +2,22 @@
 #define PROCESAMIENTO__C 1
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "procesamiento.h"
 #include "tipos.h"
+#include "constantes.h"
+
+#ifdef LENG_ESPANOL
+#include "leng_espanol.h"
+
+#elif defined (LENG_INGLES)
+#include "leng_ingles.h"
+
+#else
+#include "leng_espanol.h"
+#endif
 
 status_t abrir_archivo_entrada (parametros_t * argumentos, FILE ** fentrada)
  /*Esta funcion recibe un puntero a la estructura de parametros para poder abrir los archivos pasados por linea de argumento,
@@ -274,14 +286,14 @@ status_t imprimir_archivo_txt(simpletron_t *simpletron, FILE *fsalida)
 		return ST_ERROR_PTR_NULO;
 	}
 
-    fprintf(fsalida,"%s\n", MSJ_REGISTRO);
+  fprintf(fsalida,"%s\n", MSJ_REGISTRO);
 	fprintf(fsalida, "%25s: %7X\n",MSJ_ACUM, simpletron->acumulador );
-	fprintf(fsalida, "%25s: %7i\n",MSJ_CONT_PROG, simpletron->contador_programa );
+	fprintf(fsalida, "%25s: %7i\n",MSJ_CONT_PROG,(int) simpletron->contador_programa );
 	fprintf(fsalida, "%25s: %+7d\n",MSJ_INST, simpletron->memoria->palabras[simpletron->contador_programa]);
 	simpletron->opcode=(simpletron->memoria->palabras[simpletron->contador_programa]/10000);
 	simpletron->operando=(simpletron->memoria->palabras[simpletron->contador_programa]-(simpletron->opcode)*10000);
-	fprintf(fsalida, "%25s: %7i\n",MSJ_OPCODE, simpletron->opcode );
-	fprintf(fsalida, "%25s: %7i\n",MSJ_OPERANDO, simpletron->operando);
+	fprintf(fsalida, "%25s: %7i\n",MSJ_OPCODE, (int) simpletron->opcode );
+	fprintf(fsalida, "%25s: %7i\n",MSJ_OPERANDO, (int) simpletron->operando);
 	fprintf(fsalida,"    ");
 	for (l = 0; l < 10; l++)
 		fprintf(fsalida,"  %i   ",l) ;

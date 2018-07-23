@@ -7,6 +7,7 @@
 #include "simpletron.h"
 #include "tipos.h"
 #include "constantes.h"
+#include "tda_vector.h"
 
 #ifdef LENG_ESPANOL
 #include "leng_espanol.h"
@@ -254,7 +255,7 @@ status_t op_escribir(simpletron_t * simpletron)
 	{
 		return ST_ERROR_PTR_NULO;
 	}
-	fprintf(stdout, "%s %i : %i\n", MSJ_IMPRIMIR_PALABRA,simpletron->operando, simpletron->memoria->palabras[simpletron->operando]);
+	fprintf(stdout, "%s %i : %i\n", MSJ_IMPRIMIR_PALABRA, (int) simpletron->operando, simpletron->memoria->palabras[simpletron->operando]);
 	return ST_OK;
 }
 

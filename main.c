@@ -6,7 +6,18 @@
 
 #define LENG_ESPANOL /*elección del idioma del programa*/
 
+#ifdef LENG_ESPANOL
+#include "leng_espanol.h"
+
+#elif defined (LENG_INGLES)
+#include "leng_ingles.h"
+
+#else
+#include "leng_espanol.h"
+#endif
+
 #include "tipos.h"
+#include "errores.h"
 #include "constantes.h"
 #include "main.h"
 #include "tda_lista.h"
@@ -423,14 +434,6 @@ status_t validar_argumentos (int argc , char *argv[], parametros_t *argumentos, 
 			}
 		}
 	}
-	return ST_OK;
-}
-
-
-status_t imprimir_error(status_t st)
-/*Imprime el error correspondiente al status pasado*/
-{
-    fprintf(stderr, "%s\n", errmsg[st]);
 	return ST_OK;
 }
 

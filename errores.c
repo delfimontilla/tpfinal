@@ -2,6 +2,7 @@
 #define ERRORES__C 1
 
 #include <stdio.h>
+#include "tipos.h"
 
 #ifdef LENG_ESPANOL
 #include "leng_espanol.h"
@@ -34,5 +35,12 @@ const char * errmsg[] = {
 	MSJ_ERROR_EJECUCION,
 	MSJ_SALIR
 };
+
+status_t imprimir_error(status_t st)
+/*Imprime el error correspondiente al status pasado*/
+{
+  fprintf(stderr, "%s\n", errmsg[st]);
+	return ST_OK;
+}
 
 #endif
