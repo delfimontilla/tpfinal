@@ -45,6 +45,7 @@
 #define MAX_PALABRA 9999999
 
 #define SALTO "\n"
+#define FIN_CADENA "\0"
 #define TABULACION "\t"
 #define PREGUNTA "?"
 #define DELIM_COMA ';'

@@ -23,8 +23,8 @@ status_t abrir_archivo_entrada (parametros_t * argumentos, FILE ** fentrada)
  /*Esta funcion recibe un puntero a la estructura de parametros para poder abrir los archivos pasados por linea de argumento,
  y un puntero doble a un archivo para poder abrir los diferentes archivos*/
 {
-	char aux1[MAX_CADENA];
-	char aux2[MAX_CADENA];
+	char aux1[MAX_CADENA]=FIN_CADENA;
+	char aux2[MAX_CADENA]=FIN_CADENA;
 	char * comienzo=NULL;
 	char * fin=NULL;
 
@@ -201,16 +201,15 @@ status_t leer_archivo_stdin(simpletron_t ** simpletron)
 		return ST_ERROR_PTR_NULO;
 	}
  	printf("%s\n",MSJ_BIENVENIDA);
-	printf("%2.i %s \n", i,PREGUNTA);
-	i++;
- 	while(fgets(aux,MAX_CADENA,stdin)!=NULL)
+
+ 	do
  	{
  		if(i>(*simpletron)->memoria->pedido)
  		{
  			return ST_ERROR_LECTURA;
  		}
  		printf("%2.i %s \n", i,PREGUNTA);
-
+fgets(aux,MAX_CADENA,stdin);
 	   	if((fin=strrchr(aux,DELIM_COMA))!=NULL)
 	   	{
  			*fin='\0';
@@ -252,6 +251,7 @@ status_t leer_archivo_stdin(simpletron_t ** simpletron)
  		(*simpletron)->memoria->palabras[i]=instruccion;
  		i++;
 	}
+	while(aux!=NULL);
 	return ST_OK;
 }
 
