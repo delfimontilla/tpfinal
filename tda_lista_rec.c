@@ -62,7 +62,7 @@ status_t LISTA_destruir_nodo(nodo_t ** pnodo, status_t (*destructor_simpletron)(
 /*Destruye el nodo pasado como primer parametro,
 liberando la memoria con la funcion del segundo argumento*/
 {
-    simpletron_t * simpletron;
+    simpletron_t * simpletron=NULL;
 
     if(pnodo == NULL)
     {
@@ -83,7 +83,7 @@ liberando la memoria con la funcion del segundo argumento*/
 status_t LISTA_destruir_primero(lista_t * plista, status_t (*destructor_simpletron)(simpletron_t **))
 /*Destruye el primer nodo de la lista*/
 {
-    nodo_t * primero;
+    nodo_t * primero=NULL;
 
     if(plista == NULL)
     {
@@ -105,7 +105,7 @@ status_t LISTA_destruir(lista_t * plista, status_t (*destructor_simpletron)(simp
 /*Destruye toda la lista. Se le pasa por argumento el puntero a la lista
 y el puntero a funcion para liberar memoria.*/
 {
-    nodo_t * siguiente;
+    nodo_t * siguiente=NULL;
 
     if(plista == NULL)
     {
@@ -124,7 +124,7 @@ y el puntero a funcion para liberar memoria.*/
 status_t LISTA_insertar_al_ppio(lista_t * plista, simpletron_t * simpletron)
 /*Inserta al principio de la lista un nuevo nodo con su estructura.*/
 {
-    nodo_t * nuevo;
+    nodo_t * nuevo=NULL;
     status_t st;
 
     if(plista == NULL)
@@ -160,7 +160,7 @@ status_t LISTA_insertar_decreciente(lista_t * plista, simpletron_t * simpletron,
 /*Inserta un simpletron en orden decreciente.*/
 {
     status_t st;
-    nodo_t * nuevo;
+    nodo_t * nuevo=NULL;
 
     if(plista == NULL)
     {

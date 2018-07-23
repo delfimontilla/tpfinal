@@ -218,8 +218,9 @@ status_t op_leer (simpletron_t * simpletron)
  /*Lee una palabra por stdin a una posicion de memoria que está indicada por el operando (miembro de la estructura simpletron)
  recibe un puntero a la estructura*/
 {
-	long numero;
-	char * pc, lectura[MAX_CADENA];
+	long numero=0;
+	char * pc=NULL;
+	char lectura[MAX_CADENA];
 
 	if(!simpletron)
 	{

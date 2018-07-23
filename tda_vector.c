@@ -11,7 +11,7 @@ memoria_t * vector_crear (size_t sz)
 /*Devuelve un puntero a una estructura que tiene memoria dinamica asignada
 para si y para un vector de tamaño especificado por el argumento pasado*/
 {
-	memoria_t *v;
+	memoria_t *v=NULL;
 	v=(memoria_t*)calloc (1,sizeof(memoria_t));
 	if(v==NULL)
 	{
@@ -64,7 +64,7 @@ bool_t vector_guardar(memoria_t *v, int i, palabra_t dato, palabra_t (*copiar)(p
 /*Guarda el dato en la posicion i del vector palabras, para lo cual utiliza la funcion de copiar pasada
 y en el caso de ya tener algo en esa posicion, borra el dato viejo con la funcion destruir pasada*/
 {
-	palabra_t aux;
+	palabra_t aux=0;
 	if(!v)
 	{
 		return false;
@@ -112,7 +112,7 @@ bool_t vector_redimensionar(memoria_t *v, size_t sz, void (*liberar)(void *))
 /*modifica el tamaño del vector palabras segun sz, el segundo argumento;
 antes de ello, libera la memoria de ese vecto con la funcion liberar pasada*/
 {
-	palabra_t * aux;
+	palabra_t * aux=NULL;
 
 	if(v==NULL||liberar==NULL)
 	{

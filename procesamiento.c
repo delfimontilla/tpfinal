@@ -25,8 +25,8 @@ status_t abrir_archivo_entrada (parametros_t * argumentos, FILE ** fentrada)
 {
 	char aux1[MAX_CADENA];
 	char aux2[MAX_CADENA];
-	char * comienzo;
-	char * fin;
+	char * comienzo=NULL;
+	char * fin=NULL;
 
 	if((strcpy(aux1,argumentos->inicio_arch))==NULL)
 	{
@@ -81,12 +81,15 @@ status_t leer_archivo_bin (simpletron_t ** simpletron, FILE *fentrada)
 {
 	size_t i;
 	palabra_t instruccion;
+
+	i=0;
+	instruccion = 0;
+
 	if (!simpletron)
 	{
 		return ST_ERROR_PTR_NULO;
 	}
-	i=0;
-	instruccion = 0;
+
  	while(fread(&instruccion, sizeof(palabra_t),1,fentrada)==1)
  	{
  		if(i>(*simpletron)->memoria->pedido)
@@ -119,8 +122,8 @@ status_t leer_archivo_txt(simpletron_t ** simpletron, FILE *fentrada)
 	int i;
 	char aux[MAX_CANT_PALABRA];
 	long instruccion;
-	char * comienzo;
-	char * fin;
+	char * comienzo=NULL;
+	char * fin=NULL;
 
 	instruccion = 0;
 	i=0;
@@ -187,8 +190,8 @@ status_t leer_archivo_stdin(simpletron_t ** simpletron)
 	int i;
 	char aux[MAX_CANT_PALABRA];
 	long instruccion;
-	char * comienzo;
-	char * fin;
+	char * comienzo=NULL;
+	char * fin=NULL;
 
 	i=0;
 	instruccion = 0;
