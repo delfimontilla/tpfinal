@@ -209,7 +209,10 @@ status_t leer_archivo_stdin(simpletron_t ** simpletron)
  			return ST_ERROR_LECTURA;
  		}
  		printf("%2.i %s \n", i,PREGUNTA);
-fgets(aux,MAX_CADENA,stdin);
+		if(!(fgets(aux,MAX_CADENA,stdin)))
+		{
+				return ST_ERROR_LECTURA;
+		}
 	   	if((fin=strrchr(aux,DELIM_COMA))!=NULL)
 	   	{
  			*fin='\0';
