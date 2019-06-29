@@ -7,6 +7,7 @@
 
 #define ARGC_MAX 6
 #define ARGC_MIN 2
+#define ARG_NULO 1
 #define CANT_PALABRAS_DEFAULT 50
 #define ARG_POS_CANT_PALABRAS 1
 #define ARG_POS_CANT_PALABRAS_NUM 2
@@ -44,6 +45,7 @@
 #define MAX_PALABRA 9999999
 
 #define SALTO "\n"
+#define FIN_CADENA "\0"
 #define TABULACION "\t"
 #define PREGUNTA "?"
 #define DELIM_COMA ';'
@@ -72,7 +74,7 @@
 		MSJ_SALIDA_ARG \
 		MSJ_SALIDA_OPC \
 		MSJ_SALIDA_DESC \
-		
+
 #define TXT_AYUDA4 \
 		TAB_TITULO_OP \
 		TAB_TITULO_CODE \
@@ -109,7 +111,7 @@
 		TAB_DIVIDIR_OP \
 		TAB_DIVIDIR_CODE \
 		TAB_DIVIDIR_DESC \
-	
+
 #define TXT_AYUDA6 \
 		TAB_MULT_OP \
 		TAB_MULT_CODE \
@@ -135,4 +137,3 @@
 		TAB_FIN_DESC \
 
 #endif
-

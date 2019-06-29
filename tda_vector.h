@@ -2,6 +2,7 @@
 #define TDA_VECTOR__H 1
 
 #include <stdio.h>
+#include "tipos.h"
 
 /*Este .h contiene los prototipos de las funciones implementadas en tda_vector.c*/
 
